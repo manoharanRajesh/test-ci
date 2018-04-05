@@ -5,7 +5,6 @@ phases:
   displayName: Linux Agent
   queue:
     name: Hosted Linux Preview
-  condition: eq(false, vagrant)
   steps:
 
   # Clean
