@@ -4,7 +4,7 @@ phases:
 ################################################################################
   displayName: Linux Agent
   queue:
-    name: Hosted Linux Preview
+    name: vagrant
   steps:
 
   # Clean
