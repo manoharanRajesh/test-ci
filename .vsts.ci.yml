@@ -3,8 +3,6 @@ phases:
 - phase: build_linux_agent
 ################################################################################
   displayName: Linux Agent
-  queue:
-    name: vagrant
   steps:
 
   # Clean
