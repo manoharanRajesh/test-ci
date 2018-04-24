@@ -5,15 +5,15 @@ node() {
         checkout scm
     }
     stage ('build'){
-        echo 'TODO run the build'
+        sh 'mvn clean install'
 
     }
 
     parallel 'integration-tests':{
-        echo 'TODO run the mvn test'
+        sh 'mvn test'
 
     }, 'functional-tests':{
-        echo 'TODO run the mvn test'
+        sh 'mvn test'
     }
 
 }
