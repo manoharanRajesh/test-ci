@@ -1,0 +1,4 @@
+applications:
+  name: ci-cd-testapp
+  memory: 512M
+  instances: 1
