@@ -26,7 +26,6 @@
 
     <modules>
         <module>app</module>
-        <module>test</module>
     </modules>
     <profiles>
         <profile>
