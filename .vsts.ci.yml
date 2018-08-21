@@ -1,6 +1,6 @@
 phases:
 ################################################################################
-- phase: build_linux_agent
+- phase: Default
 ################################################################################
   displayName: Linux Agent
   steps:
@@ -9,19 +9,18 @@ phases:
   - checkout: self
     clean: true
 
-  # Build agent layout
-  - script: echo build
-    workingDirectory: src
-    displayName: Build & Layout Release
+  - task: Maven@2
+    displayName: Maven pom.xml
 
-  # Run test
-  - script: echo run
-    workingDirectory: src
-    displayName: Test
+  - task: CopyFiles@2
+    displayName: Copy Files to: $(system.defaultworkingdirectory)
+    inputs:
+      SourceFolder: '$(system.defaultworkingdirectory)'
+      Contents: '**/*.jar'
+      TargetFolder: '$(build.artifactstagingdirectory)'
 
-  # Create agent package zip
-  - script: echo package
-    workingDirectory: src
-    displayName: Package Release
-    condition: and(succeeded(), ne(variables['build.reason'], 'PullRequest'))
+  - task: PublishBuildArtifacts@1
+    displayName: Publish Artifact: drop
+    inputs:
+      PathtoPublish: '$(build.artifactstagingdirectory)'
 
