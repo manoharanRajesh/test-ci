@@ -13,7 +13,7 @@ phases:
     displayName: Maven pom.xml
 
   - task: CopyFiles@2
-    displayName: Copy Files to: $(system.defaultworkingdirectory)
+    displayName: Copy Files to: 
     inputs:
       SourceFolder: '$(system.defaultworkingdirectory)'
       Contents: '**/*.jar'
