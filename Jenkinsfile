@@ -23,11 +23,11 @@ node() {
     }
 
     stage ('Deploy to test'){
-        pushToCloudFoundry cloudSpace: 't-space', credentialsId: 'pcf', organization: 'g-org', target: 'https://api.run.pivotal.io'
+        pushToCloudFoundry cloudSpace: 'development', credentialsId: 'pcf', organization: 'kamban', target: 'https://api.run.pivotal.io'
     }
 
     stage ('Deploy to prod'){
-        pushToCloudFoundry cloudSpace: 't-space', credentialsId: 'pcf', organization: 'g-org', target: 'https://api.run.pivotal.io'
+        pushToCloudFoundry cloudSpace: 'development', credentialsId: 'pcf', organization: 'kamban', target: 'https://api.run.pivotal.io'
     }
 
 }
